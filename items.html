@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--author : isha-->
+<html>
+<script src = 
+"http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+</style>
+
+<form ng-app = "query" ng-controller="itemsCtrl"  name ="myForm" ng-init ="init()" novalidate> 
+<p>{{greeting}}</p>
+<br>
+<p> Input the range in the box: </p>
+<p> How are you doing today: </p>
+<p> Min : <input type = "text" id = "minRange" ng-model = "Range.min"> 
+ Max: <input type = "text" id ="maxRange" ng-model = "Range.max"> </p>
+
+<button ng-click="validationCheck()">Submit</button>
+<div ng-hide ="!tableShow">
+<br><br>
+
+<table>
+<tr>
+<th>Item</th>
+<th>Price</th>
+</tr>
+
+<tr ng-repeat ="x in itemsPrice" ng-show = "toShowRow({{x.price}})">
+<td>{{x.item}}</td>
+<td>{{x.price}}</td>
+</tr>
+
+</table>
+
+
+</div>
+
+
+</form>
+
+<script src = "itemsController.js">
+
+
+
+
+</script>
+
+</html>
+
